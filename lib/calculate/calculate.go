@@ -7,15 +7,16 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/AnushaUnni/service1/lib/calculate/configs"
 	"github.com/go-redis/redis/v8"
 )
 
 var rdb *redis.Client
 
 // Initialize Redis client
-func InitRedis(redisAddr string) {
+func InitRedis(config *configs.RedisConfig) {
 	rdb = redis.NewClient(&redis.Options{
-		Addr: redisAddr, // Assuming Redis is running locally or in Docker with the correct hostname
+		Addr: config.RedisAddr,
 	})
 }
 
