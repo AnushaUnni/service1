@@ -13,9 +13,9 @@ import (
 var rdb *redis.Client
 
 // Initialize Redis client
-func InitRedis() {
+func InitRedis(redisAddr string) {
 	rdb = redis.NewClient(&redis.Options{
-		Addr: "localhost:6379", // Assuming Redis is running locally or in Docker with the correct hostname
+		Addr: redisAddr, // Assuming Redis is running locally or in Docker with the correct hostname
 	})
 }
 
